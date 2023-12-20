@@ -1,0 +1,292 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px; 
+    }
+   
+    .snow_wrap{
+      height: 100vh;
+      width: 100%;
+      background-image: url(images/background.jpg);
+      background-attachment: scroll;
+      background-position: center bottom;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+  }
+  .snow, .snow::after, .snow::before{
+      content: "";
+      position: absolute;
+      top: -650px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+      radial-gradient(4px 4px at 100px 50px, #fff, transparent),
+      radial-gradient(6px 6px at 200px 150px, #fff, transparent),
+      radial-gradient(3px 6px at 300px 250px, #fff, transparent),
+      radial-gradient(4px 4px at 400px 350px, #fff, transparent),
+      radial-gradient(6px 6px at 500px 100px, #fff, transparent),
+      radial-gradient(3px 6px at 50px 200px, #fff, transparent),
+      radial-gradient(4px 4px at 150px 3000px, #fff, transparent),
+      radial-gradient(6px 6px at 250px 400px, #fff, transparent),
+      radial-gradient(5px 6px at 350px 500px, #fff, transparent);
+      background-size: 650px 650px;
+    
+  
+      animation: snowAnim 3s linear;
+      animation-iteration-count: infinite;
+  }
+  .snow::after{
+      margin-left: -250px;
+      opacity: 0.5;
+      filter: blur(2px);
+      animation-direction: reverse;
+      animation-duration: 6s;
+  }
+  .snow::before{
+      margin-left: -350px;
+      opacity: 0.5;
+      filter: blur(1px);
+      animation-direction: reverse;
+      animation-duration: 9s;
+  }
+  @keyframes snowAnim{
+      from{
+          transform: translateY(0);
+      }
+      to{
+          transform: translateY(650px);
+      }
+  }
+    .player{
+      display: flex;
+      position: relative; 
+      z-index: 0;
+      height: 95vh;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+  }
+    .wrapper{
+      margin-top: 40px;
+      max-width: 960px;
+      max-height: 650px;
+      border: 1px solid transparent;
+      padding: 30px;
+      border-radius: 20px;
+      background-color: #f0d0d025;
+      box-shadow: rgba(17, 1, 1, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+    
+    .details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    }
+    
+    .track-art {
+    margin: 25px;
+    height: 250px;
+    width: 250px;
+    border:2px solid 	#FFFAFA;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    -moz-box-shadow: 0px 6px 5px black;
+    -webkit-box-shadow: 0px 6px 5px black;
+    box-shadow: 0px 6px 5px black;
+    -moz-border-radius:190px;
+    -webkit-border-radius:190px;
+    border-radius:190px;
+    }
+    
+    .now-playing {
+    font-size: 1rem;
+    }
+    
+    .track-name {
+    font-size: 2.5rem;
+    }
+    
+    .track-artist {
+    margin-top: 5px;
+    font-size: 1.5rem;
+    }
+    
+    .buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+    .active{
+        color: black;
+    }
+    
+    .repeat-track,
+    .random-track,
+    .playpause-track,
+    .prev-track,
+    .next-track {
+    padding: 25px;
+    opacity: 0.8;
+    transition: opacity .2s;
+    }
+    
+    .repeat-track:hover,
+    .random-track:hover,
+    .playpause-track:hover,
+    .prev-track:hover,
+    .next-track:hover {
+    opacity: 1.0;
+    }
+    
+    .slider_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .seek_slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: #83A9FF;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    }
+    
+    .seek_slider::-webkit-slider-thumb,
+    
+    
+    .seek_slider:hover,
+  
+    
+    .seek_slider {
+    width: 50%;
+    }
+    
+    
+   .current-time{
+      padding: 20px;
+      
+    }
+    .total-duration {
+    padding: 20px;
+    }
+    
+  
+    
+    i,
+    i.fa-play-circle,
+    i.fa-pause-circle,
+    i.fa-step-forward,
+    i.fa-step-backward,
+    p {
+    cursor: pointer;
+    }
+    .randomActive{
+        color: black;
+    }
+    .rotate {
+        animation: rotation 8s infinite linear;
+    }
+    @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+    }
+    .loader {
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .loader .stroke{
+        background: #f0eaea;
+        height: 120%;
+        width: 8px;
+        border-radius: 50px;
+        margin: 0 10px 10px 10px;
+        animation: animate 1.4s linear infinite;
+    }
+      @keyframes animate {
+        50% {
+          height: 20%;
+          background: #cfb1b1;
+        }
+    
+        100% {
+          background: #cea2b0;
+          height: 100%;
+        }
+      }
+      .stroke:nth-child(1){
+          animation-delay: 0s;
+      }
+      .stroke:nth-child(2){
+        animation-delay: 0.3s;
+    }
+    .stroke:nth-child(3){
+        animation-delay: 0.6s;
+    }
+    .stroke:nth-child(4){
+        animation-delay: 0.9s;
+    }
+    .stroke:nth-child(5){
+        animation-delay: 0.6s;
+    }
+    .stroke:nth-child(6){
+        animation-delay: 0.3s;
+    }
+    .stroke:nth-child(7){
+        animation-delay: 0s;
+    }
+    @media screen and (max-width: 500px) {
+      .wrapper{
+        width: 75%;
+        height: 70%;
+      }
+      .track-art {
+        margin: 25px;
+        height: 180px;
+        width: 180px;
+      }
+      .now-playing {
+        font-size: 0.8rem;
+        }
+        
+        .track-name {
+        font-size: 1.6rem;
+
+        }
+        
+        .track-artist {
+        margin-top: 5px;
+        font-size: 1.1rem;
+        }
+        .buttons {
+          justify-content: center;
+          margin-bottom: 20px;
+          }
+          .loader {
+
+            height: 40px;
+          }
+          .repeat-track,
+          .random-track,
+          .playpause-track,
+          .prev-track,
+          .next-track {
+            padding: 15px;
+            }
+
+    }
